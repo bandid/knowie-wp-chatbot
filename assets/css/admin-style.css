@@ -1,0 +1,66 @@
+/* Admin styles for knowie WP Chatbot settings page */
+.knowie-wp-chatbot-admin {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.knowie-wp-chatbot-admin h1 {
+    display: flex;
+    align-items: center;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 23px;
+    font-weight: 700;
+    margin: 0 0 20px;
+    padding: 9px 0 4px;
+    line-height: 1.3;
+}
+
+.knowie-wp-chatbot-admin .knowie-logo {
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+}
+
+.knowie-wp-chatbot-admin input[type="text"],
+.knowie-wp-chatbot-admin input[type="number"],
+.knowie-wp-chatbot-admin select,
+.knowie-wp-chatbot-admin textarea {
+    width: 100%;
+    max-width: 400px;
+}
+
+.knowie-wp-chatbot-admin .button-primary {
+    background-color: #00CED1; /* Dark Turquoise */
+    border-color: #00CED1;
+    color: #fff; /* White text for darker background */
+    text-decoration: none;
+    text-shadow: none;
+}
+
+.knowie-wp-chatbot-admin .button-primary:hover,
+.knowie-wp-chatbot-admin .button-primary:focus {
+    background-color: #008B8B; /* Dark Cyan */
+    border-color: #008B8B;
+    color: #fff;
+}
+
+.knowie-wp-chatbot-admin .form-table th {
+    width: 200px;
+    padding: 20px 10px 20px 0;
+}
+
+@media screen and (max-width: 782px) {
+    .knowie-wp-chatbot-admin .form-table th {
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .knowie-wp-chatbot-admin input[type="text"],
+    .knowie-wp-chatbot-admin input[type="number"],
+    .knowie-wp-chatbot-admin select,
+    .knowie-wp-chatbot-admin textarea {
+        max-width: 100%;
+    }
+}
