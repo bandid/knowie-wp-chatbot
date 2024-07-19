@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-class knowieWPChatbot {
+class KnowieWPChatbot {
     private $api_key_option = 'knowie_wp_api_key';
     private $model_option = 'knowie_wp_model';
     private $temperature_option = 'knowie_wp_temperature';
@@ -74,7 +74,7 @@ class knowieWPChatbot {
         wp_enqueue_style('knowie-wp-chatbot-style', plugins_url('/assets/css/chatbot-style.css', __FILE__));
 		wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
         wp_enqueue_script('knowie-wp-chatbot-script', plugins_url('/assets/js/chatbot-script.js', __FILE__), array('jquery'), '1.0', true);
-        wp_localize_script('knowie-wp-chatbot-script', 'knowieWPChatbot', array(
+        wp_localize_script('knowie-wp-chatbot-script', 'KnowieWPChatbot', array(
             'ajax_url' => admin_url('admin-ajax.php'),
             'nonce'    => wp_create_nonce('knowie_wp_chatbot_nonce')
         ));
@@ -275,7 +275,7 @@ class knowieWPChatbot {
     }
 }
 
-new knowieWPChatbot();
+new KnowieWPChatbot();
 
 register_uninstall_hook(__FILE__, 'knowie_wp_chatbot_uninstall');
 function knowie_wp_chatbot_uninstall() {
