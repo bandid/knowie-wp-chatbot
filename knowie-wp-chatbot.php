@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-class KnowieWPChatbot {
+class knowieWPChatbot {
     private $api_key_option = 'knowie_wp_api_key';
     private $model_option = 'knowie_wp_model';
     private $temperature_option = 'knowie_wp_temperature';
@@ -72,9 +72,8 @@ class KnowieWPChatbot {
 
     public function enqueue_frontend_scripts() {
         wp_enqueue_style('knowie-wp-chatbot-style', plugins_url('/assets/css/chatbot-style.css', __FILE__));
-		wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
         wp_enqueue_script('knowie-wp-chatbot-script', plugins_url('/assets/js/chatbot-script.js', __FILE__), array('jquery'), '1.0', true);
-        wp_localize_script('knowie-wp-chatbot-script', 'KnowieWPChatbot', array(
+        wp_localize_script('knowie-wp-chatbot-script', 'knowieWPChatbot', array(
             'ajax_url' => admin_url('admin-ajax.php'),
             'nonce'    => wp_create_nonce('knowie_wp_chatbot_nonce')
         ));
@@ -170,19 +169,19 @@ class KnowieWPChatbot {
     public function api_key_field_html() {
         $value = get_option($this->api_key_option);
         echo '<input type="text" id="' . $this->api_key_option . '" name="' . $this->api_key_option . '" value="' . esc_attr($value) . '" style="width: 100%;" />';
-        echo '<p>Enter your OpenAI API key.</p>';
+        echo '<p>Enter your OpenAI API key</p>';
     }
 
     public function model_field_html() {
         $value = get_option($this->model_option, 'gpt-3.5-turbo');
-        $options = array('gpt-3.5-turbo', 'gpt-4', 'gpt-4-turbo', 'gpt-4o', 'gpt-4o-mini');
+        $options = array('gpt-3.5-turbo', 'gpt-4', 'gpt-4-turbo', 'gpt-4o');
         echo '<select id="' . $this->model_option . '" name="' . $this->model_option . '">';
         foreach ($options as $option) {
             $selected = ($value == $option) ? 'selected' : '';
             echo '<option value="' . esc_attr($option) . '" ' . $selected . '>' . esc_html($option) . '</option>';
         }
         echo '</select>';
-        echo '<p>Select the default model to use.</p>';
+        echo '<p>Select the default model to use</p>';
     }
 
     public function temperature_field_html() {
@@ -275,7 +274,7 @@ class KnowieWPChatbot {
     }
 }
 
-new KnowieWPChatbot();
+new knowieWPChatbot();
 
 register_uninstall_hook(__FILE__, 'knowie_wp_chatbot_uninstall');
 function knowie_wp_chatbot_uninstall() {
